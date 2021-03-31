@@ -26,18 +26,33 @@ public class UserRegistration {
     }
     public String nameResult(Boolean result){
         if (Boolean.TRUE.equals(result)) {
-            return "Your Entry Is valid";
+            return "Your Entry Is Valid";
         }else
             return "Please Enter Minimum Of Three Characters";
 
     }
+    private String getEmail(){
+        System.out.println("Enter The Email Address");
+        return sc.next();
+    }
+    protected void validateEmail(){
+        Boolean email = Pattern.matches("^[A-Za-z]+([.][a-z A-z]+)?[@][a-zA-z]{2,6}[.][a-zA-Z]{2,6}([.][a-zA-z]{2,6})?$",getEmail());
+        System.out.println(emailResult(email));
+    }
+    public String emailResult(Boolean result){
+        if (Boolean.TRUE.equals(result)) {
+            return "Email Is Valid";
+        }else
+            return "Email Is Invalid";
 
+    }
 
     public static void main(String[] args) {
         System.out.println("Welcome to User Registration");
         UserRegistration user = new UserRegistration();
         user.validateFirstName();
         user.validateLastName();
+        user.validateEmail();
 
     }
 
