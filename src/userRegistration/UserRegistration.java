@@ -46,6 +46,21 @@ public class UserRegistration {
             return "Email Is Invalid";
 
     }
+    private String getMobileNumber(){
+        System.out.println("Enter The Mobile Number");
+        return sc.next();
+    }
+    protected void validateMobileNumber(){
+        Boolean mobileNumber = Pattern.matches("^[0]?([+][0-9]{2,3}[ ])?[6-9]+[0-9]{9}",getMobileNumber());
+        System.out.println(mobileNumberResult(mobileNumber));
+    }
+    public String mobileNumberResult(Boolean result){
+        if (Boolean.TRUE.equals(result)) {
+            return "Mobile Number Is Valid";
+        }else
+            return "Mobile Number Is Invalid";
+
+    }
 
     public static void main(String[] args) {
         System.out.println("Welcome to User Registration");
@@ -53,6 +68,7 @@ public class UserRegistration {
         user.validateFirstName();
         user.validateLastName();
         user.validateEmail();
+        user.validateMobileNumber();
 
     }
 
