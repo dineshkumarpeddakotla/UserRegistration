@@ -61,6 +61,21 @@ public class UserRegistration {
             return "Mobile Number Is Invalid";
 
     }
+    private String getPassword(){
+        System.out.println("Enter the Password Minimum Of 8 Charters");
+        return sc.next();
+    }
+    protected void validatePassword(){
+        Boolean passwaord = Pattern.matches("[a-z]{8,}",getPassword());
+    System.out.println(passwordResult(passwaord));
+    }
+    public String passwordResult(Boolean result){
+        if (Boolean.TRUE.equals(result)) {
+            return "Password Is Valid";
+        }else
+            return "Password Is Invalid";
+
+    }
 
     public static void main(String[] args) {
         System.out.println("Welcome to User Registration");
@@ -69,7 +84,7 @@ public class UserRegistration {
         user.validateLastName();
         user.validateEmail();
         user.validateMobileNumber();
-
+        user.validatePassword();
     }
 
 
