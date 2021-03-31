@@ -66,7 +66,7 @@ public class UserRegistration {
         return sc.next();
     }
     protected void validatePassword(){
-        Boolean passwaord = Pattern.matches("[a-z A-z]{8,}",getPassword());
+        Boolean passwaord = Pattern.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$",getPassword());
     System.out.println(passwordResult(passwaord));
     }
     public String passwordResult(Boolean result){
