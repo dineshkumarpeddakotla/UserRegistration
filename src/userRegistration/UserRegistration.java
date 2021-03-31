@@ -4,20 +4,27 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class UserRegistration {
+    static Scanner sc = new Scanner(System.in);
 
-    public static Boolean validateFirstName(String firstName){
-        if (!Pattern.matches("[A-Z]{3,}",firstName)){
+    private String getFirstName() {
+        System.out.println("Enter Your First Name Of First Letter In Capital ");
+        return sc.next();
+    }
+    private void validateFirstName(){
+        boolean test = Pattern.matches("[A-Z][a-z]{2,}",getFirstName());
+        if (test) {
+            System.out.println("Your Entry Is valid");
+        }else {
             System.out.println("Please Enter Minimum Of Three Characters");
         }
-        return Pattern.matches("[A-Z]{3,}",firstName);
-    }
+
+     }
     public static void main(String[] args) {
         System.out.println("Welcome to User Registration");
+        UserRegistration user = new UserRegistration();
+        user.validateFirstName();
 
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter The First Name In Capital Letters");
-        String firstName = sc.nextLine();
-
-        System.out.println(validateFirstName(firstName));
     }
+
+
 }
